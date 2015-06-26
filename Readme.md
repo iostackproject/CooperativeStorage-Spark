@@ -9,7 +9,7 @@ $ sudo apt-get install virtualbox
 $ sudo apt-get install vagran
 ```
 
-Run the next command '$ vagrant up`. It will create a new Virtual Machine, and install Java and Spark 1.4.0.
+Run the next command `$ vagrant up`. It will create a new Virtual Machine, and install Java and Spark 1.4.0.
 
 The last step is to create the environment variables:
 
