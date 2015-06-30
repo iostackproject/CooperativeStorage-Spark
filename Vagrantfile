@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
- 	config.vm.box = "ubuntu/trusty64"
+ 	config.vm.box = "puppetlabs/debian-7.8-64-puppet"
 
   config.vm.hostname = "spark"
 
@@ -13,8 +13,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
-    vb.memory = "1024"
+    vb.memory = "4096"
   end
+
+  config.vm.provision "shell", path: "scripts/setup.sh"
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet/manifests"
