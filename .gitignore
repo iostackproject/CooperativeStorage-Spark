@@ -1,5 +1,6 @@
 # OS-specific
 .DS_Store
+*~
 
 # Vagrant stuff
 acceptance_config.yml
@@ -33,6 +34,8 @@ doc/
 .idea/*
 *.iml
 .project
+*.ipr
+*.iws
 
 # Ruby Managers
 .rbenv
