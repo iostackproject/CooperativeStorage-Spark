@@ -9,11 +9,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "spark"
 
+  # Enable bridged network
+  config.vm.network "public_network"
+
   config.vm.synced_folder ".", "/home/vagrant/src"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.memory = "4096"
+    vb.cpus = 2
   end
 
   config.vm.provision "shell", path: "scripts/setup.sh"
