@@ -14,10 +14,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.synced_folder ".", "/home/vagrant/src"
 
-  config.vm.provider "virtualbox" do |vb|
+
+	config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--ioapic", "on"  ]
+    vb.customize ["modifyvm", :id, "--cpus"  , "2"   ]
+    vb.customize ["modifyvm", :id, "--memory", "4096"]
     vb.gui = false
-    vb.memory = "4096"
-    vb.cpus = 2
   end
 
   config.vm.provision "shell", path: "scripts/setup.sh"
