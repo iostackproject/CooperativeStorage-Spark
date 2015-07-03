@@ -15,7 +15,7 @@ class { 'prepare':
 
 include prepare
 
-$sysPackages = ['git', 'curl', 'openjdk-7-jdk', 'maven']
+$sysPackages = ['git', 'curl', 'openjdk-6-jdk', 'maven']
 package { $sysPackages:
   ensure => "installed",
   require  => Class['prepare']
