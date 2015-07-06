@@ -12,17 +12,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Enable bridged network
   config.vm.network "public_network"
 
+
   config.vm.synced_folder ".", "/home/vagrant/src"
 
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--ioapic", "on"  ]
-    vb.customize ["modifyvm", :id, "--cpus"  , "2"   ]
+    vb.customize ["modifyvm", :id, "--cpus"  , "1"   ]
     vb.customize ["modifyvm", :id, "--memory", "4096"]
     vb.gui = false
   end
 
-  config.vm.provision "shell", path: "scripts/setup.sh"
+  config.vm.provision "shell", path: "scripts/setup.sh", privileged: false
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet/manifests"
