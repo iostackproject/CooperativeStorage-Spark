@@ -23,3 +23,6 @@ old_export=$(grep -n "export SPARK_LOCAL_IP" /home/vagrant/src/conf/spark-env.sh
 for i in $old_export; do
 	sed -i ""$i"s/.*/export SPARK_LOCAL_IP=$YOUR_IP/" /home/vagrant/src/conf/spark-env.sh
 done
+
+# Set slaves ip to AIO Spark
+echo "$YOUR_IP" > /home/vagrant/src/conf/slaves
